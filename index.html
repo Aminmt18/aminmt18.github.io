@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Everyday ❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #fff5f5;
+            color: #ff6b81;
+            padding: 20px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .note {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: none; /* Hidden by default */
+        }
+        .note.active {
+            display: block; /* Show active note */
+        }
+        .note p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .note small {
+            color: #888;
+        }
+        button {
+            background: #ff6b81;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #ff4757;
+        }
+    </style>
+</head>
+<body>
+    <div id="notes-container">
+        <!-- Notes will appear here one by one -->
+    </div>
+
+    <script>
+        const notes = [
+            { text: "Hey Princess❤️, So I have wanted to make a new one for you for a while and I thought since I can’t be there for you physically this can be the perfect birthday present, something you can always comeback to." },
+            { text: "31 huh...well as usual let’s start with my favorite player that wears 31 (it’s our tradition at this point why stop now)"},
+            { text: "So growing up I was obsessed with a German midfielder named Bastian Schweinsteiger and he wore the number 31...I guess that gives me a good excuse to be obsessed (not like I’m not already) with you...I can just blame it on my affliction with Bastian" },
+            { text: "I wonder how your 30s would make you feel? Proud, fulfilled, behind, reminiscent or just another year on the calendar. Would they motivate you to drive, go to a shooting range, learn pole dancing and get out of you comfort zone? (Secretly praying of all them to come to pass)" },
+            { text: "Well whatever you decide to do or not to do I would be here to support you cause you know our slogan...we support women’s rights and women’s wrongs." },
+            { text: "I don’t know what the next 365 holds for us but hopefully better than the last 365 did (who knows a paddock pass might be in the horizon) " },
+            { text: "I know no matter what life throws at you, you got it and in case you don’t I’d be here to alleviate as much of the burden as I can" },
+            { text: "And in the words of Hozier “You're too sweet for me”❤️" }
+            
+        ];
+
+        const container = document.getElementById("notes-container");
+        let currentNote = 0;
+
+        function showNote(index) {
+            if (index >= notes.length) {
+                container.innerHTML = `<div class="note"><p>That's all for now, but I'll add more soon! 😘</p></div>`;
+                return;
+            }
+
+            const note = notes[index];
+            container.innerHTML = `
+                <div class="note active">
+                    <p>${note.text}</p>
+                    <small>${note.date}</small>
+                    <br><br>
+                    <button onclick="nextNote()">Close</button>
+                </div>
+            `;
+        }
+
+        function nextNote() {
+            currentNote++;
+            showNote(currentNote);
+        }
+
+        // Start with the first note
+        showNote(0);
+    </script>
+</body>
+</html>
